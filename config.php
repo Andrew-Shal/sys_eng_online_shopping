@@ -13,7 +13,7 @@
 
 // ** MySQL settings ** //
 /** The name of the database */
-define( 'DB_NAME', 'online_shopping_system' );
+define( 'DB_NAME', 'dev_test_db_online_shopping' );
 
 /** MySQL database username */
 define( 'DB_USER', 'andrew' );

@@ -11,12 +11,10 @@
  *
  */
 
-  define( 'INC_DIR', '/includes' );
+  define( 'INC_DIR', 'includes' );
 
   // Include files required for initialization.
   require( INC_DIR . '/load.php' );
-  require( INC_DIR . '/default-constants.php' );
-
 
   $global_title = 'BZ Online Shopping';
   define('TO_INC', 'includes/');
@@ -32,3 +30,6 @@
   global $db;
   require_pdo();
 
+
+
+  require(INC_DIR . '/recommendation.php');
