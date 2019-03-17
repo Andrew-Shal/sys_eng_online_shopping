@@ -1,20 +1,30 @@
 <?php
 
 /**
- * Load the database class file and instantiate the `$db` global.
+ * Load the PDO and instantiate the `$db` global.
  *
- * @global db $db The database class.
+ * @global PDO $db The database class.
  */
 
-function require_db(){
+function require_pdo(){
   global $db;
 
-  require_once('db.php');
-  
   $dbUser     = defined( 'DB_USER' ) ? DB_USER : '';
   $dbPassword = defined('DB_PASSWORD') ? DB_PASSWORD : '';
   $dbName     = defined('DB_NAME') ? : '';
   $dbHost     = defined('DB_HOST') ? : '';
   
-  $db = new DB($dbUser, $dbPassword, $dbName, $dbHost);
+  if (isset($db)){
+    return;
+  }
+
+  try{
+
+    $db = new PDO("mysql:host={$dbHost};dbname={$dbName}",$dbUser,$dbPassword);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  }catch(PDOException $exception){
+    echo "Connection error:" . $exception->getMessage();
+  }
+  
 }

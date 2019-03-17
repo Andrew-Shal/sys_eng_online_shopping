@@ -30,5 +30,5 @@
 
   // Include the db class.
   global $db;
-  require_db();
+  require_pdo();
 
