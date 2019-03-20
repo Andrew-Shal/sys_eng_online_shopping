@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2019 at 07:53 AM
+-- Generation Time: Mar 20, 2019 at 10:21 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -73,24 +73,25 @@ CREATE TABLE `tbl_user` (
   `cust_street` varchar(100) NOT NULL,
   `phone_number` varchar(20) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `account_status` int(255) NOT NULL,
+  `account_status` varchar(20) NOT NULL,
   `registered_timestamp` datetime NOT NULL,
   `activation_key` varchar(255) NOT NULL,
-  `role_id` int(255) NOT NULL
+  `user_role` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`id`, `first_name`, `last_name`, `email_address`, `cust_country`, `cust_state`, `cust_city`, `cust_street`, `phone_number`, `password`, `account_status`, `registered_timestamp`, `activation_key`, `role_id`) VALUES
-(1, 'Andrew', 'Shal', 'shalandrew97@gmail.com', 'Belize', 'Cayo', 'Belmopan', 'Bethel St.', '6244690', 'andrew', 2, '2019-03-17 22:54:06', '1234', 1),
-(2, 'Anisha', 'Shal', 'shalanisha95@gmail.com', 'Belize', 'Cayo', 'Belmopan', 'Bethel St.', '6244690', 'anisha', 2, '2019-03-17 22:54:06', '1234', 1),
-(3, 'Edwin', 'Shal', 'shaledwin97@gmail.com', 'Belize', 'Cayo', 'Belmopan', 'Bethel St.', '6244690', 'edwin', 2, '2019-03-17 22:54:06', '1234', 1),
-(4, 'Ophelia', 'Shal', 'shalophelia74@gmail.com', 'Belize', 'Cayo', 'Belmopan', 'Bethel St.', '6244690', 'ophelia', 2, '2019-03-17 22:54:06', '1234', 1),
-(5, 'Julio', 'Shal', 'shaljulio72@gmail.com', 'Belize', 'Cayo', 'Belmopan', 'Bethel St.', '6244690', 'julio', 2, '2019-03-17 22:54:06', '1234', 1),
-(6, 'leon', 'Coleman', 'colemanleon17@gmail.com', 'Belize', 'Cayo', 'Belmopan', 'Bethel St.', '6244690', 'leon', 2, '2019-03-17 22:54:06', '1234', 1),
-(7, 'Leonel', 'Coleman', 'colemanleonel87@gmail.com', 'Belize', 'Cayo', 'Belmopan', 'Bethel St.', '6244690', 'leonel', 2, '2019-03-17 22:54:06', '1234', 1);
+INSERT INTO `tbl_user` (`id`, `first_name`, `last_name`, `email_address`, `cust_country`, `cust_state`, `cust_city`, `cust_street`, `phone_number`, `password`, `account_status`, `registered_timestamp`, `activation_key`, `user_role`) VALUES
+(1, 'Andrew', 'Shal', 'shalandrew97@gmail.com', 'Belize', 'Cayo', 'Belmopan', 'Bethel St.', '6244690', 'andrew', '2', '2019-03-17 22:54:06', '1234', '1'),
+(2, 'Anisha', 'Shal', 'shalanisha95@gmail.com', 'Belize', 'Cayo', 'Belmopan', 'Bethel St.', '6244690', 'anisha', '2', '2019-03-17 22:54:06', '1234', '1'),
+(3, 'Edwin', 'Shal', 'shaledwin97@gmail.com', 'Belize', 'Cayo', 'Belmopan', 'Bethel St.', '6244690', 'edwin', '2', '2019-03-17 22:54:06', '1234', '1'),
+(4, 'Ophelia', 'Shal', 'shalophelia74@gmail.com', 'Belize', 'Cayo', 'Belmopan', 'Bethel St.', '6244690', 'ophelia', '2', '2019-03-17 22:54:06', '1234', '1'),
+(5, 'Julio', 'Shal', 'shaljulio72@gmail.com', 'Belize', 'Cayo', 'Belmopan', 'Bethel St.', '6244690', 'julio', '2', '2019-03-17 22:54:06', '1234', '1'),
+(6, 'leon', 'Coleman', 'colemanleon17@gmail.com', 'Belize', 'Cayo', 'Belmopan', 'Bethel St.', '6244690', 'leon', '2', '2019-03-17 22:54:06', '1234', '1'),
+(7, 'Leonel', 'Coleman', 'colemanleonel87@gmail.com', 'Belize', 'Cayo', 'Belmopan', 'Bethel St.', '6244690', 'leonel', '2', '2019-03-17 22:54:06', '1234', '1'),
+(8, 'test', 'test', 'test', 'test', 'test', 'test', 'test', '1234567', 'test', 'INACTIVE', '2019-03-20 00:00:00', 'test', 'test');
 
 -- --------------------------------------------------------
 
@@ -232,7 +233,7 @@ ALTER TABLE `tbl_rating`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_user_role`
