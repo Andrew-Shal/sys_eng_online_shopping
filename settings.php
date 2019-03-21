@@ -1,4 +1,8 @@
 <?php
+
+use OnlineBuyer\OnlineBuyer;
+use OnlineBuyerDAO\OnlineBuyerDAO;
+
 /**
  * Used to set up and fix common variables and include
  *
@@ -32,7 +36,44 @@ global $db;
 require_pdo();
 
 
-
-require(INC_DIR . '/recommendation.php');
 require('includes/dep/Enum.php');
-require(INC_DIR . '/models/class_user.php');
+require(INC_DIR . '/class_SysError.php');
+require(INC_DIR . '/class_OnlineUser.php');
+require(INC_DIR . '/interface_dao.php');
+require(INC_DIR . '/class_OnlineBuyer.php');
+require(INC_DIR . '/class_OnlineBuyerDAO.php');
+require(INC_DIR . '/class_OnlineSeller.php');
+require(INC_DIR . '/enum_AccountStatus.php');
+require(INC_DIR . '/enum_UserRole.php');
+require(INC_DIR . '/recommendation.php');
+
+
+echo 'Current PHP version: ' . phpversion();
+
+$userDao = new OnlineBuyerDAO($db);
+
+//get a customer (Buyer) by id
+$customer = $userDao->getById(8);
+
+//get all customers
+$customers = $userDao->getAll();
+
+echo "<pre>";
+print_r($customer);
+echo "</pre>";
+
+echo "<pre>";
+print_r($customers);
+echo "</pre>";
+
+//remove a customer
+$result = $userDao->delete($customer);
+
+if ($result) {
+  echo ("User Succesfully removed!");
+  echo "<pre>";
+  print_r($customers);
+  echo "</pre>";
+} else {
+  echo ("there was a problem removing the user");
+}
